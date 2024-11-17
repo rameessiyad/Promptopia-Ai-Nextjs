@@ -4,10 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Nav = () => {
   const { data: session } = useSession();
   const isUserLoggedIn = session?.user;
+  const router = useRouter();
 
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropdown] = useState(false);
@@ -40,7 +42,14 @@ const Nav = () => {
               Create Post
             </Link>
 
-            <button type="button" className="outline_btn" onClick={signOut}>
+            <button
+              type="button"
+              className="outline_btn"
+              onClick={() => {
+                signOut();
+                router.push("/");
+              }}
+            >
               Sign Out
             </button>
 

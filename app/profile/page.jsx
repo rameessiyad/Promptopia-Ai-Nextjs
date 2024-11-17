@@ -17,6 +17,7 @@ const MyProfile = () => {
     };
     if (session?.user.id) fetchPost();
   }, []);
+  console.log("data", posts);
 
   const handleEdit = () => {};
   const handleDelete = () => {};

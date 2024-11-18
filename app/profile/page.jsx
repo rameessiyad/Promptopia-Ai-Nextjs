@@ -20,7 +20,7 @@ const MyProfile = () => {
   }, []);
 
   const handleEdit = (post) => {
-    router.push(`/update-prompt?id=${posts._id}`);
+    router.push(`/update-prompt?id=${post._id}`);
   };
 
   const handleDelete = (post) => {};
